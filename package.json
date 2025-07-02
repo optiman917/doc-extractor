@@ -1,0 +1,17 @@
+{
+  "name": "file_llm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:frontend": "cd frontend && pnpm install",
+    "install:backend": "cd backend && poetry install",
+    "install:all": "pnpm install:frontend && pnpm install:backend",
+    "dev:frontend": "cd frontend && pnpm dev",
+    "dev:backend": "cd backend && poetry run flask --app app.main run --debug",
+    "dev": "concurrently \"pnpm run dev:frontend\" \"pnpm run dev:backend\"",
+    "db:init": "cd backend && poetry run python database_setup.py"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
